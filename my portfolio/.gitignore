@@ -1,0 +1,23 @@
+# System
+System Volume Information/
+$RECYCLE.BIN/
+
+# Certificates & books
+Certificates/
+My books/
+
+# Other projects / unrelated
+Claude-project/
+Portfolio social media sp/
+casual-shoes/
+marketing strategy/
+my photoes/
+programs/
+
+# Lock files
+*.af~lock*
+~$*.xlsx
+
+# OS
+Thumbs.db
+.DS_Store
