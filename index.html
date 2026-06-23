@@ -6,7 +6,7 @@
   <title>Mohamed Nady — Social Media Specialist & Shopify Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -108,13 +108,27 @@
     }
     .hero-content h1 span { color: #8B2635; }
     .hero-tagline {
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      font-weight: 300; letter-spacing: 3px; text-transform: uppercase;
-      color: rgba(255,255,255,0.5); margin-bottom: 20px;
+      font-size: clamp(0.85rem, 1.4vw, 1rem);
+      font-weight: 400; letter-spacing: 4px; text-transform: uppercase;
+      color: rgba(255,255,255,0.6); margin-bottom: 24px;
+      display: flex; flex-direction: column; align-items: flex-start; gap: 8px;
+    }
+    .hero-tagline .line {
+      display: flex; align-items: center; gap: 16px;
+    }
+    .hero-tagline .line::after {
+      content: ""; display: inline-block;
+      width: 40px; height: 1px; background: rgba(139,38,53,0.4);
     }
     .hero-desc {
       font-size: 1.05rem; color: rgba(255,255,255,0.7);
       max-width: 520px; margin-bottom: 36px;
+    }
+    .hero-desc .word {
+      transition: color 0.5s ease;
+    }
+    .hero-desc .word.glow {
+      color: #f9b233;
     }
     .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
     .hero-photo-wrapper {
@@ -196,6 +210,12 @@
       background: rgba(139,38,53,0.08);
       border-radius: 0 12px 12px 0;
     }
+    .about-highlight .word {
+      transition: color 0.6s ease;
+    }
+    .about-highlight .word.glow {
+      color: #f9b233;
+    }
     .about-stats {
       display: flex; gap: 10px; margin: 24px 0 20px;
     }
@@ -254,6 +274,91 @@
     .skill-tag:hover {
       background: rgba(139,38,53,0.35);
       transform: translateX(4px);
+    }
+
+    /* ════════════════════════════════════════
+               EXPERIENCE TIMELINE
+    ════════════════════════════════════════ */
+    .experience-wrap {
+      position: relative; max-width: 800px; margin: 0 auto;
+      padding-left: 60px;
+    }
+    .experience-wrap::before {
+      content: ""; position: absolute; left: 23px; top: 0; bottom: 0;
+      width: 2px; background: linear-gradient(to bottom, #8B2635, rgba(139,38,53,0.2));
+    }
+    .exp-item {
+      position: relative; margin-bottom: 60px;
+    }
+    .exp-item:last-child { margin-bottom: 0; }
+    .exp-item.visible { }
+    .exp-num {
+      position: absolute; left: -60px; top: 4px;
+      width: 46px; height: 46px; border-radius: 50%;
+      background: #8B2635; border: 3px solid rgba(245,230,211,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 700; color: #fff;
+      z-index: 2; transition: all 0.5s ease;
+    }
+    .exp-item.visible .exp-num {
+      background: #f9b233; border-color: #f9b233;
+      box-shadow: 0 0 24px rgba(249,178,51,0.3);
+    }
+    .exp-card {
+      background: rgba(245,230,211,0.04);
+      border: 1px solid rgba(245,230,211,0.08);
+      border-radius: 16px; padding: 28px 32px;
+      transition: all 0.4s ease;
+    }
+    .exp-card:hover {
+      background: rgba(139,38,53,0.1);
+      border-color: rgba(139,38,53,0.25);
+      transform: translateX(6px);
+    }
+    .exp-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem; color: #ffffff; margin-bottom: 4px;
+    }
+    .exp-card .exp-sub {
+      font-size: 0.85rem; color: #f9b233; font-weight: 500;
+      margin-bottom: 12px; letter-spacing: 0.3px;
+    }
+    .exp-card p {
+      color: rgba(255,255,255,0.72); font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .exp-card ul {
+      list-style: none; padding: 0; margin: 12px 0 0;
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .exp-card ul li {
+      background: rgba(139,38,53,0.2);
+      border: 1px solid rgba(139,38,53,0.2);
+      padding: 6px 14px; border-radius: 20px;
+      font-size: 0.8rem; color: rgba(255,255,255,0.7);
+    }
+    .exp-card .exp-detail-list {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6px 20px; margin-top: 14px;
+    }
+    .exp-card .exp-detail-list li {
+      background: none; border: none; padding: 4px 0;
+      border-radius: 0; font-size: 0.88rem;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .exp-card .exp-detail-list li::before {
+      content: ""; display: inline-block; width: 5px; height: 5px;
+      border-radius: 50%; background: #8B2635; flex-shrink: 0;
+    }
+    .exp-industries {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px;
+    }
+    .exp-industries span {
+      background: rgba(249,178,51,0.1);
+      border: 1px solid rgba(249,178,51,0.15);
+      padding: 4px 12px; border-radius: 14px;
+      font-size: 0.78rem; color: #f9b233;
     }
 
     /* ════════════════════════════════════════
@@ -471,7 +576,7 @@
       font-size: 1.4rem; font-weight: 700; color: rgba(255,255,255,0.95);
       text-decoration: none; letter-spacing: 1px;
     }
-    .nav-logo span { color: #8B2635; }
+    .nav-logo span { color: #f9b233; }
     .nav-links {
       display: flex; gap: 0; list-style: none;
       position: relative;
@@ -740,6 +845,10 @@
 
       .process-grid { grid-template-columns: 1fr 1fr; }
       .portfolio-grid { grid-template-columns: 1fr 1fr; }
+
+      .experience-wrap { padding-left: 50px; }
+      .exp-num { left: -50px; width: 40px; height: 40px; font-size: 1rem; }
+      .exp-card .exp-detail-list { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 640px) {
@@ -758,6 +867,11 @@
       .portfolio-grid { grid-template-columns: 1fr; }
       .skills-grid { grid-template-columns: 1fr; }
       .hero-photo { max-width: 240px; }
+
+      .experience-wrap { padding-left: 44px; }
+      .exp-num { left: -44px; width: 34px; height: 34px; font-size: 0.85rem; }
+      .exp-card { padding: 20px; }
+      .exp-card h3 { font-size: 1.05rem; }
     }
   </style>
 </head>
@@ -784,6 +898,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#hero" class="active">Home</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#process">Process</a></li>
         <li><a href="#portfolio">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -800,7 +915,10 @@
     <div class="container">
       <div class="hero-grid">
         <div class="hero-content" data-reveal>
-          <p class="hero-tagline">Social Media Specialist &amp; Shopify Developer</p>
+          <p class="hero-tagline">
+            <span class="line">Social Media Specialist</span>
+            <span class="line">Shopify Developer</span>
+          </p>
           <h1>Mohamed <span>Nady</span></h1>
           <p class="hero-desc">
             I help brands build a powerful digital presence through strategic social media management and high-converting Shopify e-commerce stores.
@@ -904,6 +1022,92 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── MY EXPERIENCE ─── -->
+  <section id="experience">
+    <div class="container">
+      <h2 data-reveal>My Experience</h2>
+      <p class="section-sub" data-reveal data-reveal-delay="80">The journey that shaped my expertise</p>
+      <div class="experience-wrap">
+
+        <div class="exp-item" data-reveal data-reveal-delay="0">
+          <span class="exp-num">1</span>
+          <div class="exp-card">
+            <h3>Academic Education</h3>
+            <div class="exp-sub">Bachelor's Degree</div>
+            <p><strong>Badr Institute</strong> &mdash; Graduated with a Very Good grade, building a strong academic foundation in business, marketing principles, communication, and strategic thinking that supports practical marketing execution and brand development.</p>
+          </div>
+        </div>
+
+        <div class="exp-item" data-reveal data-reveal-delay="150">
+          <span class="exp-num">2</span>
+          <div class="exp-card">
+            <h3>Professional Certifications</h3>
+            <div class="exp-sub">Digital Marketing Certifications</div>
+            <p>Completed specialized training programs and certifications in Digital Marketing, including the renowned Adham Hossam Marketing Program.</p>
+            <ul>
+              <li>Digital Marketing Fundamentals</li>
+              <li>Social Media Marketing</li>
+              <li>Market Research</li>
+              <li>Buyer Persona Development</li>
+              <li>Content Strategy</li>
+              <li>Marketing Planning</li>
+              <li>Brand Positioning</li>
+              <li>AI Tools for Marketing</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item" data-reveal data-reveal-delay="300">
+          <span class="exp-num">3</span>
+          <div class="exp-card">
+            <h3>Practical Marketing Training</h3>
+            <div class="exp-sub">Social Media Marketing Training</div>
+            <p>Successfully completed a <strong>3-Month Practical Social Media Marketing Training</strong> at Adham Hossam Company, managing and analyzing real business accounts.</p>
+            <ul class="exp-detail-list">
+              <li>Managing real business accounts</li>
+              <li>Content strategies &amp; marketing plans</li>
+              <li>Audience targeting &amp; analysis</li>
+              <li>Performance tracking &amp; optimization</li>
+            </ul>
+            <div class="exp-industries">
+              <span>Coffee Shops</span>
+              <span>Pharmacies</span>
+              <span>Fashion &amp; Clothing</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item" data-reveal data-reveal-delay="450">
+          <span class="exp-num">4</span>
+          <div class="exp-card">
+            <h3>Freelance Website Development Experience</h3>
+            <div class="exp-sub">Freelance Shopify &amp; WordPress Developer | 5 Months</div>
+            <p>Worked as a Freelance Website Developer for 5 months, helping multiple brands build and optimize their online presence through professionally designed e-commerce websites using Shopify and WordPress.</p>
+            <p style="margin-top:10px"><strong>Industries Served:</strong></p>
+            <div class="exp-industries">
+              <span>Perfume &amp; Fragrance Brands</span>
+              <span>Men's Footwear Brands</span>
+              <span>Women's Footwear Brands</span>
+              <span>Casual Fashion &amp; Clothing Brands</span>
+              <span>E-commerce Retail Stores</span>
+            </div>
+            <p style="margin-top:14px"><strong>Key Responsibilities:</strong></p>
+            <ul class="exp-detail-list">
+              <li>Building and launching complete e-commerce websites on Shopify and WordPress</li>
+              <li>Designing responsive and user-friendly online stores</li>
+              <li>Customizing themes to match each brand's identity</li>
+              <li>Managing product listings, collections, and store structure</li>
+              <li>Optimizing website performance and user experience</li>
+              <li>Integrating essential apps, plugins, and sales tools</li>
+              <li>Enhancing customer journeys to improve engagement and conversions</li>
+            </ul>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1267,6 +1471,20 @@
       });
     }, { rootMargin: '0px 0px -80px 0px' });
     document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+
+    // ── Word-by-word glow ──
+    (function wordGlow() {
+      const el = document.querySelector('.hero-desc');
+      if (!el) return;
+      const words = el.textContent.trim().split(/\s+/);
+      el.innerHTML = words.map(w => `<span class="word">${w}</span>`).join(' ');
+      const spans = el.querySelectorAll('.word');
+      let i = 0;
+      const t = setInterval(() => {
+        if (i < spans.length) { spans[i].classList.add('glow'); i++; }
+        else clearInterval(t);
+      }, 260);
+    })();
 
     // ── Hamburger toggle ──
     const hamburger = document.getElementById('hamburger');
